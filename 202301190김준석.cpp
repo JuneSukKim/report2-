@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+ìˆ˜ì •í•˜ê² ìŠµë‹ˆë‹¤.
 class Vehicle {
 private:
     string Serial_number;
@@ -8,11 +8,11 @@ protected:
     string engine_type;
 public:
     Vehicle(string serial, string engine) : Serial_number(serial), engine_type(engine) {
-        cout << "Â÷·® »ý¼º: " << Serial_number << endl;
+        cout << "ì°¨ëŸ‰ ìƒì„±: " << Serial_number << endl;
     }
 
     ~Vehicle() {
-        cout << "Â÷·® ¼Ò¸ê: " << Serial_number << endl;
+        cout << "ì°¨ëŸ‰ ì†Œë©¸: " << Serial_number << endl;
     }
 
     void set_engine_type(string type) {
@@ -29,11 +29,11 @@ protected:
     int oil_gauge;
 public:
     Gasoline(string serial, string engine, int oil) : Vehicle(serial, engine), oil_gauge(oil) {
-        cout << "°¡¼Ö¸° Â÷·® »ý¼º: " << serial << endl;
+        cout << "ê°€ì†”ë¦° ì°¨ëŸ‰ ìƒì„±: " << serial << endl;
     }
 
     void start_engine() {
-        cout << "°¡¼Ö¸° ¿£Áø ½ÃÀÛ" << endl;
+        cout << "ê°€ì†”ë¦° ì—”ì§„ ì‹œìž‘" << endl;
     }
 
     int get_oil_gauge() const {
@@ -42,12 +42,12 @@ public:
 
     void accelerate() {
         if (oil_gauge <= 0) {
-            cout << "±â¸§À» ÃæÀüÇÏ¼¼¿ä" << endl;
+            cout << "ê¸°ë¦„ì„ ì¶©ì „í•˜ì„¸ìš”" << endl;
         }
         else {
             oil_gauge -= 5;
-            cout << "¿£Áø °¡¼Ó" << endl;
-            cout << "ÀÜ¿© ±â¸§ ¾ç: " << oil_gauge << endl;
+            cout << "ì—”ì§„ ê°€ì†" << endl;
+            cout << "ìž”ì—¬ ê¸°ë¦„ ì–‘: " << oil_gauge << endl;
         }
     }
 };
@@ -57,12 +57,12 @@ protected:
     int charged_gauge;
 public:
     Electric(string serial, string engine, int charged) : Vehicle(serial, engine), charged_gauge(charged) {
-        cout << "Àü±â Â÷·® »ý¼º: " << serial << endl;
+        cout << "ì „ê¸° ì°¨ëŸ‰ ìƒì„±: " << serial << endl;
     }
 
     void start_motor() {
-        cout << "Àü±â ¸ðÅÍ ½ÃÀÛ" << endl;
-        cout << "ÀÜ¿© ¹èÅÍ¸®: " << charged_gauge << endl;
+        cout << "ì „ê¸° ëª¨í„° ì‹œìž‘" << endl;
+        cout << "ìž”ì—¬ ë°°í„°ë¦¬: " << charged_gauge << endl;
     }
 
     int get_charged_gauge() const {
@@ -71,12 +71,12 @@ public:
 
     void accelerate() {
         if (charged_gauge <= 0) {
-            cout << "¹èÅÍ¸®¸¦ ÃæÀüÇÏ¼¼¿ä" << endl;
+            cout << "ë°°í„°ë¦¬ë¥¼ ì¶©ì „í•˜ì„¸ìš”" << endl;
         }
         else {
             charged_gauge -= 10;
-            cout << "Àü±â ¸ðÅÍ °¡¼Ó" << endl;
-            cout << "ÀÜ¿© ¹èÅÍ¸®: " << charged_gauge << endl;
+            cout << "ì „ê¸° ëª¨í„° ê°€ì†" << endl;
+            cout << "ìž”ì—¬ ë°°í„°ë¦¬: " << charged_gauge << endl;
         }
     }
 };
@@ -85,7 +85,7 @@ class Hybrid : public Gasoline, public Electric {
 public:
     Hybrid(string serial, string engine, int oil, int charged)
         : Gasoline(serial, engine, oil), Electric(serial, engine, charged) {
-        cout << "ÇÏÀÌºê¸®µå Â÷·® »ý¼º: " << serial << endl;
+        cout << "í•˜ì´ë¸Œë¦¬ë“œ ì°¨ëŸ‰ ìƒì„±: " << serial << endl;
     }
 
     void accelerate() {
@@ -99,21 +99,21 @@ public:
 };
 
 int main() {
-    Gasoline gasCar("GAS", "°¡¼Ö¸° ¿£Áø", 10);
-    Electric elecCar("ELECTRIC", "Àü±â ¸ðÅÍ", 20);
-    Hybrid hybridCar("HYBRID", "ÇÏÀÌºê¸®µå", 10, 20);
+    Gasoline gasCar("GAS", "ê°€ì†”ë¦° ì—”ì§„", 10);
+    Electric elecCar("ELECTRIC", "ì „ê¸° ëª¨í„°", 20);
+    Hybrid hybridCar("HYBRID", "í•˜ì´ë¸Œë¦¬ë“œ", 10, 20);
 
-    cout << "°¡¼Ö¸° Â÷·® °¡¼Ó:" << endl;
+    cout << "ê°€ì†”ë¦° ì°¨ëŸ‰ ê°€ì†:" << endl;
     gasCar.accelerate();
     gasCar.accelerate();
     gasCar.accelerate();
 
-    cout << "\nÀü±â Â÷·® °¡¼Ó:" << endl;
+    cout << "\nì „ê¸° ì°¨ëŸ‰ ê°€ì†:" << endl;
     elecCar.accelerate();
     elecCar.accelerate();
     elecCar.accelerate();
 
-    cout << "\nÇÏÀÌºê¸®µå Â÷·® °¡¼Ó:" << endl;
+    cout << "\ní•˜ì´ë¸Œë¦¬ë“œ ì°¨ëŸ‰ ê°€ì†:" << endl;
     hybridCar.accelerate();
     hybridCar.accelerate();
     hybridCar.accelerate();
