@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-이 부분 수정하겠습니다.
 class Vehicle {
 private:
     string Serial_number;
