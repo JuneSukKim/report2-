@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-그 사이 내 기존코드가 변경되어 있었음
+우연히도 동일한 라인을 수정함
 class Vehicle {
 private:
     string Serial_number;
