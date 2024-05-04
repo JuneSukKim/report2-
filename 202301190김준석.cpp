@@ -1,4 +1,5 @@
 #include<iostream>
+...
 using namespace std;
 활발한 업데이트 진행중 지금도 계속 진행하고있음
 class Vehicle {
